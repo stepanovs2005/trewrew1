@@ -1,0 +1,189 @@
+{
+  "product_entitlement_mapping": {
+    "draft_max": {
+      "base_plan_id": "draft-max-200-m",
+      "entitlements": [
+        "Perplexity Max"
+      ],
+      "product_identifier": "draft_max"
+    },
+    "draft_max:draft-max-200-m": {
+      "base_plan_id": "draft-max-200-m",
+      "entitlements": [
+        "Perplexity Max"
+      ],
+      "product_identifier": "draft_max"
+    },
+    "max": {
+      "base_plan_id": "max-200-m",
+      "entitlements": [
+        "Perplexity Max"
+      ],
+      "product_identifier": "max"
+    },
+    "max:max-200-m": {
+      "base_plan_id": "max-200-m",
+      "entitlements": [
+        "Perplexity Max"
+      ],
+      "product_identifier": "max"
+    },
+    "max:max-2000-y": {
+      "base_plan_id": "max-2000-y",
+      "entitlements": [
+        "Perplexity Max"
+      ],
+      "product_identifier": "max"
+    },
+    "pplx_usage_based_billing_10": {
+      "entitlements": [],
+      "product_identifier": "pplx_usage_based_billing_10"
+    },
+    "pplx_usage_based_billing_100": {
+      "entitlements": [],
+      "product_identifier": "pplx_usage_based_billing_100"
+    },
+    "pplx_usage_based_billing_25": {
+      "entitlements": [],
+      "product_identifier": "pplx_usage_based_billing_25"
+    },
+    "pplx_usage_based_billing_250": {
+      "entitlements": [],
+      "product_identifier": "pplx_usage_based_billing_250"
+    },
+    "pplx_usage_based_billing_5": {
+      "entitlements": [],
+      "product_identifier": "pplx_usage_based_billing_5"
+    },
+    "pplx_usage_based_billing_50": {
+      "entitlements": [],
+      "product_identifier": "pplx_usage_based_billing_50"
+    },
+    "pro": {
+      "base_plan_id": "pro-20-m",
+      "entitlements": [
+        "Perplexity Pro"
+      ],
+      "product_identifier": "pro"
+    },
+    "pro:pro-10p-off-1y-200-y": {
+      "base_plan_id": "pro-10p-off-1y-200-y",
+      "entitlements": [
+        "Perplexity Pro"
+      ],
+      "product_identifier": "pro"
+    },
+    "pro:pro-20-m": {
+      "base_plan_id": "pro-20-m",
+      "entitlements": [
+        "Perplexity Pro"
+      ],
+      "product_identifier": "pro"
+    },
+    "pro:pro-200-y-1w": {
+      "base_plan_id": "pro-200-y-1w",
+      "entitlements": [
+        "Perplexity Pro"
+      ],
+      "product_identifier": "pro"
+    },
+    "pro:pro-25p-off-1y-200-y": {
+      "base_plan_id": "pro-25p-off-1y-200-y",
+      "entitlements": [
+        "Perplexity Pro"
+      ],
+      "product_identifier": "pro"
+    },
+    "pro:pro-30p-off-1y-200-y": {
+      "base_plan_id": "pro-30p-off-1y-200-y",
+      "entitlements": [
+        "Perplexity Pro"
+      ],
+      "product_identifier": "pro"
+    },
+    "pro:pro-5-1m-20-m": {
+      "base_plan_id": "pro-5-1m-20-m",
+      "entitlements": [
+        "Perplexity Pro"
+      ],
+      "product_identifier": "pro"
+    },
+    "pro:pro-5-1m-200-y": {
+      "base_plan_id": "pro-5-1m-200-y",
+      "entitlements": [
+        "Perplexity Pro"
+      ],
+      "product_identifier": "pro"
+    },
+    "pro:pro-trial-1w-20-m": {
+      "base_plan_id": "pro-trial-1w-20-m",
+      "entitlements": [
+        "Perplexity Pro"
+      ],
+      "product_identifier": "pro"
+    },
+    "pro:pro-trial-1w-200-y": {
+      "base_plan_id": "pro-trial-1w-200-y",
+      "entitlements": [
+        "Perplexity Pro"
+      ],
+      "product_identifier": "pro"
+    },
+    "pro_back_to_school": {
+      "base_plan_id": "pro-5-m",
+      "entitlements": [
+        "Perplexity Pro"
+      ],
+      "product_identifier": "pro_back_to_school"
+    },
+    "pro_back_to_school:pro-5-m": {
+      "base_plan_id": "pro-5-m",
+      "entitlements": [
+        "Perplexity Pro"
+      ],
+      "product_identifier": "pro_back_to_school"
+    },
+    "pro_holiday_24": {
+      "base_plan_id": "pro-20-m",
+      "entitlements": [
+        "Perplexity Pro"
+      ],
+      "product_identifier": "pro_holiday_24"
+    },
+    "pro_holiday_24:pro-20-m": {
+      "base_plan_id": "pro-20-m",
+      "entitlements": [
+        "Perplexity Pro"
+      ],
+      "product_identifier": "pro_holiday_24"
+    },
+    "pro_holiday_24:pro-200-y-after-holiday-promo": {
+      "base_plan_id": "pro-200-y-after-holiday-promo",
+      "entitlements": [
+        "Perplexity Pro"
+      ],
+      "product_identifier": "pro_holiday_24"
+    },
+    "pro_promo": {
+      "base_plan_id": "pro-20-m",
+      "entitlements": [
+        "Perplexity Pro"
+      ],
+      "product_identifier": "pro_promo"
+    },
+    "pro_promo:pro-20-m": {
+      "base_plan_id": "pro-20-m",
+      "entitlements": [
+        "Perplexity Pro"
+      ],
+      "product_identifier": "pro_promo"
+    },
+    "pro_promo:pro-200-y-after-promo": {
+      "base_plan_id": "pro-200-y-after-promo",
+      "entitlements": [
+        "Perplexity Pro"
+      ],
+      "product_identifier": "pro_promo"
+    }
+  }
+}
