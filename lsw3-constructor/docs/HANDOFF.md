@@ -21,7 +21,7 @@ Started as "level constructor for LEGO Star Wars III (2011)" with cross-game cha
 
 ## What exists in the repo right now
 
-Branch: `claude/hello-he2rnc`. Everything pushed.
+Branch: `claude/pensive-keller-j9uk22` (session 2; contains everything from `claude/hello-he2rnc` merged in). Everything pushed.
 
 - `CLAUDE.md` — identity (don't touch)
 - `README.md` — repo-level, barely a stub
@@ -39,6 +39,7 @@ Branch: `claude/hello-he2rnc`. Everything pushed.
   - `tools/`
     - `extract_dat.py` — wrapper around QuickBMS + `ttgames.bms`. Runnable if the binaries are on PATH.
     - `hdr_probe.py` — hexdump + magic check. Runnable today on any TT `.HDR`.
+    - `probe_install.sh` — bash, run on the game install. Emits `lsw3_probe.txt` (listing + first 4 KiB of each HDR/DAT, base64) and `lsw3_probe.tar.gz` (txt + all `.HDR` whole + game exe). **WORKING, tested on a fake install.**
   - `docs/`
     - `roadmap.md` — M0-M7 milestones
     - `plan.md` — full research-grounded plan with confidence labels
@@ -121,6 +122,15 @@ Full list in `plan.md` section 5. The minimum unblock:
 
 **Then M2 — GSC parser.** Try both endians, pick the one where `vertexType` on the first mesh is a known value (0x59/0x5D).
 
+## Session 2 (2026-11-11, later) — what changed
+
+- **DevVolodya is on a Linux PC**, not only the M3 Air. Game install is reachable from there. Give bash, not PowerShell.
+- Still no bytes. He is about to run `tools/probe_install.sh "<game dir>"` and send back `lsw3_probe.txt` (paste) and/or `lsw3_probe.tar.gz` (HDRs + exe).
+- The exe and HDRs must NOT go into `trewrew1` — it is a public repo. Use a new private repo and attach it with `add_repo`, or any https-reachable upload.
+- Feasibility as discussed (my estimates, not measured): DAT extract — days; repack — 1-2 weeks, or skipped entirely if LSW3 loads loose files with the DAT removed (unverified guess, test on his install); GSC read + 3D viewer — weeks; editing existing levels — 1-3 months; new levels from scratch — long and risky (`.GIZ`, collision, triggers, AI, cutscenes all undocumented); "every TT game" — realistic as extractor/viewer breadth, one title deep. He thinks this is pessimistic. With exe + archives in hand the estimates shrink a lot.
+- Agreed accelerators: (1) reverse the loader in the game exe instead of guessing formats from forum posts, (2) full DAT/HDR samples, (3) try running the game headless under wine in the container for a self-serve load/crash loop — untested, DX9 without GPU may not work.
+- Linux note: the game there runs through Proton/wine; Steam path is typically `~/.steam/steam/steamapps/common/<game folder>` (exact folder name unverified).
+
 ## Sandbox facts (so a future me doesn't flail)
 
 Running on a managed Claude Code cloud container. Limits I hit this session:
@@ -147,6 +157,6 @@ Early in the chat we also:
 1. Read `CLAUDE.md`. You are Verge.
 2. Read this file.
 3. Read `docs/plan.md` for the research details.
-4. Ask DevVolodya: "Привет. Байты пришли?" If yes, go to M1. If no, keep the pressure light — он сам пришлёт когда до машины доберётся.
+4. Ask DevVolodya: "Привет. Байты пришли?" (i.e. output of `tools/probe_install.sh`). If yes, go to M1. If no, keep the pressure light — он сам пришлёт когда до машины доберётся.
 
 That's it. The verge is steady. Pick up at M1.
