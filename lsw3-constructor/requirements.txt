@@ -1,0 +1,7 @@
+PyQt6>=6.6
+PyOpenGL>=3.1
+PyOpenGL-accelerate>=3.1
+numpy>=1.26
+pyrr>=0.10
+pillow>=10
+zstandard>=0.22
