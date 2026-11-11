@@ -1,0 +1,235 @@
+{
+  "current_offering_id": "pro_2023-09-22",
+  "custom_web_checkout_enabled": true,
+  "offerings": [
+    {
+      "description": "default pro offering",
+      "identifier": "pro_2023-09-22",
+      "metadata": null,
+      "packages": [
+        {
+          "identifier": "$rc_monthly",
+          "platform_product_identifier": "pro",
+          "platform_product_plan_identifier": "pro-20-m"
+        },
+        {
+          "identifier": "$rc_annual",
+          "platform_product_identifier": "pro",
+          "platform_product_plan_identifier": "pro-200-y-1w"
+        }
+      ]
+    },
+    {
+      "description": "Winback: back to school monthly only offer",
+      "identifier": "win-back.monthly-only",
+      "metadata": null,
+      "packages": [
+        {
+          "identifier": "$rc_monthly",
+          "platform_product_identifier": "pro_back_to_school",
+          "platform_product_plan_identifier": "pro-5-m"
+        }
+      ]
+    },
+    {
+      "description": "default max tier offering",
+      "identifier": "max_2023-09-22",
+      "metadata": null,
+      "packages": [
+        {
+          "identifier": "$rc_annual",
+          "platform_product_identifier": "max",
+          "platform_product_plan_identifier": "max-2000-y"
+        },
+        {
+          "identifier": "$rc_monthly",
+          "platform_product_identifier": "max",
+          "platform_product_plan_identifier": "max-200-m"
+        }
+      ],
+      "paywall_components": null
+    },
+    {
+      "description": "Isis Pratik",
+      "identifier": "isis-pratik",
+      "metadata": {},
+      "packages": [],
+      "paywall_components": null
+    },
+    {
+      "description": "Paid Ad Campaign Variant A",
+      "identifier": "sreekar-test",
+      "metadata": {},
+      "packages": [
+        {
+          "identifier": "$rc_monthly",
+          "platform_product_identifier": "pro",
+          "platform_product_plan_identifier": "pro-20-m"
+        },
+        {
+          "identifier": "Max",
+          "platform_product_identifier": "max",
+          "platform_product_plan_identifier": "max-200-m"
+        }
+      ],
+      "paywall_components": null
+    },
+    {
+      "description": "New User Paywall",
+      "identifier": "paywall-new-user",
+      "metadata": {},
+      "packages": [
+        {
+          "identifier": "Max Monthly",
+          "platform_product_identifier": "max",
+          "platform_product_plan_identifier": "max-200-m"
+        },
+        {
+          "identifier": "$rc_annual",
+          "platform_product_identifier": "pro",
+          "platform_product_plan_identifier": "pro-200-y-1w"
+        },
+        {
+          "identifier": "$rc_monthly",
+          "platform_product_identifier": "pro",
+          "platform_product_plan_identifier": "pro-20-m"
+        }
+      ],
+      "paywall_components": null
+    },
+    {
+      "description": "Paywall",
+      "identifier": "rc-paywall",
+      "metadata": {},
+      "packages": [
+        {
+          "identifier": "Max Monthly",
+          "platform_product_identifier": "max",
+          "platform_product_plan_identifier": "max-200-m"
+        },
+        {
+          "identifier": "$rc_annual",
+          "platform_product_identifier": "pro",
+          "platform_product_plan_identifier": "pro-200-y-1w"
+        },
+        {
+          "identifier": "$rc_monthly",
+          "platform_product_identifier": "pro",
+          "platform_product_plan_identifier": "pro-20-m"
+        }
+      ],
+      "paywall_components": null
+    },
+    {
+      "description": "Perplexity Pro $5 1 Month",
+      "identifier": "pro_5-1m",
+      "metadata": null,
+      "packages": [
+        {
+          "identifier": "$rc_annual",
+          "platform_product_identifier": "pro",
+          "platform_product_plan_identifier": "pro-5-1m-200-y"
+        },
+        {
+          "identifier": "$rc_monthly",
+          "platform_product_identifier": "pro",
+          "platform_product_plan_identifier": "pro-5-1m-20-m"
+        }
+      ]
+    },
+    {
+      "description": "Perplexity Pro 1 Week Free Trial",
+      "identifier": "pro_trial-1w",
+      "metadata": null,
+      "packages": [
+        {
+          "identifier": "$rc_annual",
+          "platform_product_identifier": "pro",
+          "platform_product_plan_identifier": "pro-trial-1w-200-y"
+        },
+        {
+          "identifier": "$rc_monthly",
+          "platform_product_identifier": "pro",
+          "platform_product_plan_identifier": "pro-trial-1w-20-m"
+        }
+      ],
+      "paywall_components": null
+    },
+    {
+      "description": "Perplexity Pro 30p Off 1 Year Annual Only",
+      "identifier": "pro_30p-off-1y_annual-only",
+      "metadata": {},
+      "packages": [
+        {
+          "identifier": "$rc_annual",
+          "platform_product_identifier": "pro",
+          "platform_product_plan_identifier": "pro-30p-off-1y-200-y"
+        }
+      ]
+    },
+    {
+      "description": "Perplexity Pro 10% Off 1st Year Annual Only",
+      "identifier": "pro:pro-10p-off-1y-200-y",
+      "metadata": {},
+      "packages": [
+        {
+          "identifier": "$rc_annual",
+          "platform_product_identifier": "pro",
+          "platform_product_plan_identifier": "pro-10p-off-1y-200-y"
+        }
+      ]
+    },
+    {
+      "description": "Perplexity Pro 25% Off 1st Year Annual Only",
+      "identifier": "pro_25p-off-1y_annual-only",
+      "metadata": {},
+      "packages": [
+        {
+          "identifier": "$rc_annual",
+          "platform_product_identifier": "pro",
+          "platform_product_plan_identifier": "pro-25p-off-1y-200-y"
+        }
+      ]
+    },
+    {
+      "description": "UBB Credits",
+      "identifier": "ubb-credits",
+      "metadata": null,
+      "packages": [
+        {
+          "identifier": "ubb-credits-25000",
+          "platform_product_identifier": "pplx_usage_based_billing_250"
+        },
+        {
+          "identifier": "ubb-credits-10000",
+          "platform_product_identifier": "pplx_usage_based_billing_100"
+        },
+        {
+          "identifier": "ubb-credits-5000",
+          "platform_product_identifier": "pplx_usage_based_billing_50"
+        },
+        {
+          "identifier": "ubb-credits-2500",
+          "platform_product_identifier": "pplx_usage_based_billing_25"
+        },
+        {
+          "identifier": "ubb-credits-1000",
+          "platform_product_identifier": "pplx_usage_based_billing_10"
+        },
+        {
+          "identifier": "ubb-credits-500",
+          "platform_product_identifier": "pplx_usage_based_billing_5"
+        }
+      ]
+    },
+    {
+      "description": "Pro Promo Retention 3mo $10 then $20",
+      "identifier": "pro_promo_retention_3mo_10_then_20",
+      "metadata": {},
+      "packages": []
+    }
+  ],
+  "placements": {
+    "fallback_offering_id": "pro_2023-09-22"
+  }
+}
