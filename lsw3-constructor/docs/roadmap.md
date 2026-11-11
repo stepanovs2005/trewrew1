@@ -1,65 +1,75 @@
 # Roadmap
 
-Honest scope. No promises past what the state of community research allows.
+Research-grounded. See `plan.md` for the full synthesis and confidence labels.
 
-## Dependencies on user
+## Blocker on user
 
-Nothing of substance can be coded without:
-1. A legit copy of `GAME.DAT` from the user's LSW3 install (`...\LEGO Star Wars III\GAME.DAT`)
-2. Access to sibling games for cross-port (`...\LEGO Batman 2\GAME.DAT`, `...\LEGO Pirates of the Caribbean\GAME.DAT`, `...\LEGO Harry Potter Years 5-7\GAME.DAT`)
-3. Willingness to test builds on a Windows machine (or Wine on macOS)
-
-Without (1), progress stops at the first milestone.
+Nothing substantive gets implemented without:
+1. `GAME.DAT` + `GAME.HDR` from LSW3 install
+2. `LEGOStarWarsIII.exe`
+3. Platform confirmation (PC Windows retail DX9 — Steam/GOG)
+4. Access to sibling titles later (Batman 2, Pirates, HP5-7) for character porting
 
 ## Milestones
 
-### M1 — Archive IO (days)
-- Parse GAME.DAT header + TOC
-- Enumerate entries, dump raw blobs to disk
-- Repack entries into a loadable GAME.DAT
-- Round-trip test: extract + repack = byte-identical (or game-loadable if not bit-exact)
+### M0 — Scaffold (done)
 
-**Blocker:** real GAME.DAT needed. Community format notes (XeNTaX/ZenHAX) will seed the parser.
+- Repo layout, binary IO primitives, TT-FNV hash, format module shells with stable API.
+- Plan document grounded in research of community RE work.
 
-### M2 — Asset bundles (.nup) (1-2 weeks)
-- Identify sub-blob types inside .nup (model, texture, anim, script)
-- Decode texture formats (DXT variants, swizzled console textures?)
-- Decode mesh geometry (vertex streams, indices, skeleton bindings)
-- Blender exporter for inspection
+### M1 — DAT extract + probe (1-2 days once sample lands)
 
-### M3 — Character porter (1 week after M2)
-- Load character .nup from LSW3
-- Load character .nup from sibling NuGame game
-- Match/remap skeleton if compatible; refuse if incompatible with clear diagnostic
-- Inject target character into LSW3's character bundle
-- Test: character appears in-game with working animations
+- `tools/extract_dat.py` — wraps QuickBMS + ttgames.bms. Produces mirrored tree + manifest.
+- `tools/hdr_probe.py` — dumps magic + first offset table words.
+- `formats/game_dat.py::GameDat.open` — Python-native parser for `.HDR` (so we don't depend on QuickBMS forever). Field order confirmed against a real sample.
 
-### M4 — Level reader (2-3 weeks)
-- Decode level .nup: static mesh instances, props, spawns, lights, triggers
-- Load level into read-only 3D viewport
-- Click → inspect entity properties
+### M2 — GSC/GHG reader (NXG tier) (1-2 weeks)
 
-### M5 — Level writer + GSC passthrough (2-3 weeks)
-- Serialize edited scene back to .nup
-- Preserve/edit mission script (.gsc) — initial pass is passthrough (keep game logic intact), later pass adds opcode-level editing
-- In-game load test: a vanilla level re-encoded by our tool must be indistinguishable from the original
+- Parse section-offset table (BODY_OFFSET=0x40 NUP / 0x30 HGP).
+- Walk ModelHeader, Instances, Meshes, Materials, embedded DDS textures.
+- Handle vertexType 0x59 (static) first; 0x5D (skinned) after.
+- Endianness probe: try LE, retry BE if `vertexType` comes out insane.
+- **NXG delta identification:** byte-diff LSW3 `_NXG.GSC` against mortar-eng LSW1 struct dump — every non-zero bit in the trailing `unk` region is a lead.
 
-### M6 — Full level constructor (open-ended)
-- New level from scratch: terrain brush, mesh placement, trigger wiring, spawn setup
-- Scripting GUI for common mission events (die-respawn, stud reward, cutscene stub)
-- Playtest loop: launch LSW3, auto-load the WIP level
+### M3 — Level viewer (glTF output, Blender add-on later) (1 week after M2)
 
-### M7 — GSC decompiler/recompiler (months, maybe never complete)
-- Disassemble opcodes → readable listing
-- Recompile edited listing
-- Required only if M6 scripting GUI isn't enough
+- Emit per-instance scene graph to glTF (static geometry only).
+- Open in Blender / gltf.report for visual verification.
+- Add textures once DDS extraction + material resolution lands.
 
-## What we won't ship
+### M4 — PyQt6 + OpenGL editor shell (2-3 weeks)
 
-- Pirated game assets
-- A tool that bypasses DRM (LSW3 PC has SafeDisc, mostly bypassed by community already; our tooling targets a working install)
-- Cross-port of characters from NON-NuGame games (different era rigs, out of scope)
+- Scene outliner, inspector panel, 3D viewport with picking + translate/rotate/scale gizmos.
+- Edit instance transforms, delete, duplicate. No new primitives yet.
+- Serialize edited scene back to GSC (first working repack is the milestone).
 
-## Current blocker
+### M5 — Character porter cross-game (parallel with M4, 1-2 weeks after M2)
 
-Waiting on research findings and user's `GAME.DAT`.
+- Load GHG from sibling NXG-tier game (Batman 2 / Pirates / HP5-7).
+- Verify / remap skeleton compatibility.
+- Inject target character into LSW3 chars bundle.
+- Validate in-game.
+
+### M6 — Full constructor (open-ended)
+
+- Create levels from scratch: terrain blocks, mesh placement from library, trigger wiring, spawns.
+- Scripting GUI for common mission events (die-respawn, stud rewards, cutscene stubs).
+- Play-test loop: autolaunch game with the WIP level loaded.
+
+### M7 — GSC script bytecode decompiler (months, maybe never)
+
+- Only needed if M6 scripting GUI can't cover a given use case.
+- No opcode table published anywhere — real cold RE.
+
+## Out of scope
+
+- Pirated game assets or DRM bypass (LSW3 PC DRM is already defeated by community — we target a working install)
+- Cross-port from non-NXG titles (LSW:TCS older engine; Skywalker Saga NTT newer — different rigs, out of scope)
+- Oodle-compressed titles (LSW3 doesn't use Oodle; that's Skywalker Saga only)
+
+## Reality checks
+
+- **Repack is the real wall.** Extract/view is plumbing. Writing a `.CC4` LSW3 accepts is where this stops being a weekend and starts being a project.
+- **GSC script VM is a trap.** For a data-only constructor, we reuse existing compiled scripts and edit the data side. Don't let scope creep.
+- **mortar-eng's LSW1 structs will not be byte-exact for LSW3.** NXG tier added fields in the trailing unk region. Expect to fix during M2.
+- **Archived-tool problem is real.** NuXtractor, TTGamesPatcher, DATOneArchiver — all last touched 2021-2022 or archived. Live work is on the TTGames LEGO Modding Discord.
